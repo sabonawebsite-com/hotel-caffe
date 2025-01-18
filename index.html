@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Caffee☕</title>
 </head>
 <style>
   body {
@@ -16,6 +16,13 @@
   h1, h2 {
     text-align: center;
     color: #333;
+  }
+  button {
+    background-color: red;
+    color: white;
+    border-radius: 50px;
+    padding: 10px 10px;
+    border: 1px solid purple;
   }
   
   .big-container {
@@ -126,25 +133,29 @@
           <img src="buna3.jpg" alt="Carton of Cherries">
           <h3>Buna</h3>
           <p>birri: 10☕</p>
-          <button class="add-to-cart" data-price="4">hagam ajaja</button>
+          <button id="count1">0</button><br>
+          <button onclick="add1()"  class="add-to-cart" data-price="4">hagam ajaja</button>
        </div>
        <div class="Products1">
           <img src="shayi.jpg" alt="Carton of Strawberries">
           <h3>Shayii</h3>
           <p>birr: 10☕</p>
-          <button class="add-to-cart" data-price="5">hagam ajaja</button>
+          <button id="count2">0</button><br>
+          <button onclick="add2()"  class="add-to-cart" data-price="5">hagam ajaja</button>
        </div>
        <div class="Products2">
           <img src="sabusaa.jpg" alt="Bag of Oranges">
           <h3>Saanbusaa</h3>
           <p>birri: 15🍕</p>
-          <button class="add-to-cart" data-price="10">hagam ajaja</button>
+          <button id="count3">0</button><br>
+          <button  onclick="add3()"  class="add-to-cart" data-price="10">hagam ajaja</button>
        </div>
        <div class="Products3">
           <img src="anaa1.jpg" alt="Bag of Oranges">
           <h3>Aannan</h3>
           <p>birr: 15 🥛</p>
-          <button class="add-to-cart" data-price="15">hagam ajaja</button>
+          <button  id="count4">0</button><br>
+          <button  onclick="add4()"  class="add-to-cart" data-price="15">hagam ajaja</button>
        </div>
        <div class="checkout">
           <h2>Waligalan</h2>
@@ -178,6 +189,26 @@
     </div>
  
   <script>
+    let count1=0;
+    let count2=0;
+    let count3=0;
+    let count4=0;
+    function add1(){
+      document.getElementById("count1").innerHTML=count1+=1;
+      
+    }
+    function add2(){
+      document.getElementById("count2").innerHTML=count2+=1;
+      
+    }
+    function add3(){
+      document.getElementById("count3").innerHTML=count3+=1;
+      
+    }
+    function add4(){
+      document.getElementById("count4").innerHTML=count4+=1;
+      
+    }
 const cartItems = [];
 const cartTable = document.getElementById('cart-table');
 const cartTotalElement = document.getElementById('cart-total');
@@ -214,9 +245,9 @@ function updateCart() {
     const removeCell = row.insertCell();
 
     itemCell.textContent = item.name;
-    priceCell.textContent = '$' + item.price;
+    priceCell.textContent = 'birri' + item.price;
     quantityCell.textContent = item.quantity;
-    totalCell.textContent = '$' + item.price * item.quantity;
+    totalCell.textContent = 'birri' + item.price * item.quantity;
 
     const removeButton = document.createElement('button');
     removeButton.textContent = 'Remove';
