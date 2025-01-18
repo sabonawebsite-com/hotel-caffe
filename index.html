@@ -165,8 +165,8 @@
           <button id="submit-payment">Xumurii🔚</button>
           <div class="receipt" id="receipt">
              <h2>Nagahee</h2>
-             <p>Birrin Atii Cafalte: birri : <span id="cash-received-display">0</span></p>
-
+             <p>Kafalteta:<span id="cash-received-display">0</span></p>
+             <p><span id="remaining-balance">0</span></p>
              <p id="payment-message"></p>
           </div>
        </div>
@@ -270,9 +270,9 @@ function handlePayment() {
   remainingBalance.textContent = (cashReceived - total).toFixed(2);
 
   if (cashReceived >= total) {
-    paymentMessage.textContent = 'Thank you for your purchase!';
+    paymentMessage.textContent = 'Galtooma!';
   } else {
-    paymentMessage.textContent = 'Please pay the remaining balance.';
+    paymentMessage.textContent = 'Maalo Kafalaa.';
   }
 
   receipt.style.display = 'block';
