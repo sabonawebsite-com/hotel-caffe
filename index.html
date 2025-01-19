@@ -12,6 +12,46 @@
     margin: 0;
     padding: 0;
   }
+  .display-content{
+    display: flex;
+    flex-direction: column;
+    padding: 10px 20px;
+    font-size: 20px;
+}
+.inputs{
+    background-color: #e8f8f345, 244;
+    color: red;
+    border: 1px solid green;
+    padding: 10px 20px;
+    font-size: 30px;
+    
+}
+input{
+    width: 70px;
+    height: 25px;
+    gap: 30px;
+}
+button{
+    background-color: rgba(255, 30, 0, 0.719);
+    color: white;
+    border: 1px solid purple;
+    font-size: 22px;
+    border-radius: 20px;
+    padding: 10px 20px;
+    margin-right: 4px;
+}
+button:hover{
+    background-color: rgba(1, 146, 243, 0.719);
+    color: white;
+    border: 1px solid rgb(101, 235, 12);
+ 
+    font-size: 22px;
+    border-radius: 20px;
+    padding: 10px 20px;
+    margin-right: 4px;
+
+   
+}
   input{
     font-size: 40;
     background-color: antiquewhite;
@@ -140,6 +180,23 @@
   <body>
     <h1>Welcome to Nancafee</h1>
     <h2>Dhiyeesi Waan</h2>
+    <div class="display-content">
+
+    </div>
+    <h1 id="dbunaa"></h1>
+    <h1 id="dtea"></h1>
+    <h1 id="dsan"></h1>
+    <h1 id="Total">Total</h1>
+</div>
+<div class="inputs">
+    <label >Bunaa☕</label>
+    <input type="number" placeholder="Meeqaa" id="buna"><button onclick="kafaltii1()">Kafali</button><br>
+    <label>Shayii🍵</label>
+    <input type="number" placeholder="Meeqaa" id="tea"><button onclick="kafaltii2()">Kafali</button><br>
+    <label>Sanbusa🍕</label>
+    <input type="number" placeholder="Meeqaa" id="saanbusaa"><button onclick="kafaltii3()">Kafali</button><br>
+    <button onclick="totalCost()">Total</button>
+</div>
      
     <div class="big-container">
        <div class="Products0">
@@ -147,28 +204,32 @@
           <h3>Buna</h3>
           <p>birri: 10☕</p>
           <button id="count1">0</button><br>
-          <button onclick="add1()"  class="add-to-cart" data-price="10">hagam ajaja</button>
+          <button onclick="add1()"  class="add-to-cart" data-price="10">➕</button>
+          <button onclick="minus1()"  class="add-to-cart" data-price="10">➖</button>
        </div>
        <div class="Products1">
           <img src="shayi.jpg" alt="Carton of Strawberries">
           <h3>Shayii</h3>
           <p>birr: 10☕</p>
           <button id="count2">0</button><br>
-          <button onclick="add2()"  class="add-to-cart" data-price="10">hagam ajaja</button>
+          <button onclick="add2()"  class="add-to-cart" data-price="10">➕</button>
+          <button onclick="minus2()"  class="add-to-cart" data-price="10">➖</button>
        </div>
        <div class="Products2">
           <img src="sabusaa.jpg" alt="Bag of Oranges">
           <h3>Saanbusaa</h3>
           <p>birri: 15🍕</p>
           <button id="count3">0</button><br>
-          <button  onclick="add3()"  class="add-to-cart" data-price="15">hagam ajaja</button>
+          <button  onclick="add3()"  class="add-to-cart" data-price="15">➕</button>
+          <button  onclick="minus3()"  class="add-to-cart" data-price="15">➖</button>
        </div>
        <div class="Products3">
           <img src="anaa1.jpg" alt="Bag of Oranges">
           <h3>Aannan</h3>
           <p>birr: 15 🥛</p>
           <button  id="count4">0</button><br>
-          <button  onclick="add4()"  class="add-to-cart" data-price="15">hagam ajaja</button>
+          <button  onclick="add4()"  class="add-to-cart" data-price="15">➕</button>
+          <button  onclick="minus4()"  class="add-to-cart" data-price="15">➖</button>
        </div>
        <div class="checkout">
           <h2>Waliigalaan</h2>
@@ -183,6 +244,8 @@
              <p>Kafalteta:<span id="cash-received-display">0</span></p>
              <p><span id="remaining-balance">0</span></p>
              <p id="payment-message"></p>
+             <hr>
+           
           </div>
        </div>
     </div>
@@ -204,6 +267,25 @@
     </div>
  
   <script>
+    let buna=0;
+        let shayi=0;
+        let saanbusaa=0;
+        let total=buna+shayi+saanbusaa;
+        function kafaltii1(){
+            buna=document.getElementById('buna').value
+            document.getElementById('dbunaa').textContent=`buna:${buna} birri ${buna*10} dha`
+        }
+        function kafaltii2(){
+            shayi=document.getElementById('tea').value
+            document.getElementById('dtea').textContent=`Shayii ${shayi}birri ${shayi*10} dha`
+        }
+        function kafaltii3(){
+            saanbusaa=document.getElementById('saanbusaa').value
+            document.getElementById('dsan').textContent=`sanbusa ${saanbusaa} birri ${saanbusaa*15} dha`
+        }
+        function totalCost(){
+            document.getElementById('Total').textContent=`Total: ${buna*10+shayi*10+saanbusaa*15} dha`
+        }
     let count1=0;
     let count2=0;
     let count3=0;
@@ -222,6 +304,24 @@
     }
     function add4(){
       document.getElementById("count4").innerHTML=count4+=1;
+      
+    }
+
+
+    function minus1(){
+      document.getElementById("count1").innerHTML=count1-=1;
+      
+    }
+    function minus2(){
+      document.getElementById("count2").innerHTML=count2-=1;
+      
+    }
+    function minus3(){
+      document.getElementById("count3").innerHTML=count3-=1;
+      
+    }
+    function minus4(){
+      document.getElementById("count4").innerHTML=count4-=1;
       
     }
 const cartItems = [];
