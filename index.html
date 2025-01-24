@@ -6,122 +6,99 @@
     <title>Caffee☕</title>
 </head>
 <style>
-    body {  
-        font-family: Arial, sans-serif;  
-        background-color: #f4f4f4;  
-        margin: 0;  
-        padding: 20px;  
-    }  
-    
-    h1, h2 {  
-        color: #3c3c3c;  
-        text-align: center;  
-    }  
-    
-    h1 {  
-        margin-top: 20px;  
-    }  
-    
-    .display-content {  
-        margin: 20px 0;  
-        text-align: center;  
-    }  
-    
-    .inputs {  
-        background-color: #ffffff;  
-        border: 1px solid #ddd;  
-        padding: 15px;  
-        border-radius: 8px;  
-        margin-bottom: 20px;  
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);  
-    }  
-    
-    .input-label {  
-        margin: 10px 0;  
-        display: block;  
-    }  
-    
-    button {  
-        background-color: #28a745;  
-        color: white;  
-        border: none;  
-        padding: 10px 15px;  
-        border-radius: 5px;  
-        cursor: pointer;  
-        margin: 5px 0;  
-    }  
-    
-    button:hover {  
-        background-color: #218838;  
-    }  
-    
-    .big-container {  
-        display: flex;  
-        flex-wrap: wrap;  
-        justify-content: space-around;  
-        margin: 20px 0;  
-    }  
-    
-    .Products0, .Products1, .Products2, .Products3 {  
-        background-color: #ffffff;  
-        border: 1px solid #ddd;  
-        border-radius: 8px;  
-        padding: 15px;  
-        margin: 10px;  
-        text-align: center;  
-        width: 200px;   
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);  
-    }  
-    
-    .Products0 img, .Products1 img, .Products2 img, .Products3 img {  
-        width: 100%;   
-        height: auto;   
-    }  
-    
-    .cart {  
-        margin-top: 20px;  
-    }  
-    
-    .cart table {  
-        width: 100%;  
-        border-collapse: collapse;  
-    }  
-    
-    .cart th, .cart td {  
-        border: 1px solid #ddd;  
-        padding: 8px;  
-        text-align: center;  
-    }  
-    
-    .cart th {  
-        background-color: #007bff;  
-        color: white;  
-    }  
-    
-    .cart button {  
-        background-color:white  
-    }  
-    
-    .cart button:hover {  
-        background-color: #c82333;  
-    }  
-    
-    .receipt {  
-        display: none; /* Hidden by default */  
-        background-color: #fff;  
-        border: 1px solid #ddd;  
-        border-radius: 8px;  
-        padding: 15px;  
-        margin-top: 20px;  
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);  
-    }  
-    
-    .profile-owner {  
-        width: 50px;   
-        height: auto;   
-        display: block;   
-        margin: 0 auto;   
-    }
+/* Base Styles */  
+body {  
+  font-family: Arial, sans-serif;  
+  margin: 0;  
+  padding: 0;  
+  box-sizing: border-box;  
+}  
+
+h1, h2, h3 {  
+  text-align: center;  
+}  
+
+.display-content, .inputs, .big-container, .cart {  
+  max-width: 1200px;  
+  margin: auto;  
+  padding: 20px;  
+}  
+
+/* Responsive Grid for Products */  
+.big-container {  
+  display: flex;  
+  flex-wrap: wrap;  
+  justify-content: space-around;  
+}  
+
+/* Individual Product Cards */  
+.Products0, .Products1, .Products2, .Products3 {  
+  flex: 1 1 calc(25% - 20px); /* Adjust the percentage for more or less items per row */  
+  margin: 10px;  
+  border: 1px solid #ddd;  
+  border-radius: 8px;  
+  text-align: center;  
+  padding: 10px;  
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);  
+}  
+
+/* Buttons */  
+button {  
+  margin-top: 10px;  
+}  
+
+/* Inputs */  
+.inputs label, .inputs input {  
+  display: block;  
+  margin: 10px auto;  
+  text-align: center;  
+}  
+
+/* Table Styles */  
+#cart-table {  
+  width: 100%;  
+  border-collapse: collapse;  
+  margin-top: 20px;  
+}  
+
+#cart-table th, #cart-table td {  
+  border: 1px solid #ddd;  
+  padding: 8px;  
+  text-align: center;  
+}  
+
+#clear-cart {  
+  margin-top: 20px;  
+  display: block;  
+}  
+
+/* Media Queries for Responsiveness */  
+@media screen and (max-width: 768px) {  
+  .big-container {  
+      flex-direction: column;  
+  }  
+  .Products0, .Products1, .Products2, .Products3 {  
+      flex: 1 1 100%; /* Stack full width on smaller screens */  
+  }  
+
+  .inputs {  
+      text-align: center;  
+  }  
+
+  #cart-table {  
+      font-size: 14px; /* Smaller text for mobile */  
+  }  
+}  
+
+@media screen and (max-width: 480px) {  
+  h1, h2, h3 {  
+      font-size: 1.5em; /* Adjust heading size for smaller screens */  
+  }  
+  
+  .inputs input {  
+      width: 80%; /* Wider inputs on small screens */  
+  }  
+}
 </style>
   
 <body>
